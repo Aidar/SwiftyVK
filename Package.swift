@@ -9,12 +9,28 @@ let package = Package(
         .library(
             name: "SwiftyVK",
             targets: ["SwiftyVK_macOS", "SwiftyVK_iOS"]
+        )
+    ],
+    targets: [
+        .target(
+            name: "SwiftyVK_macOS",
+            dependencies: ["SwiftyVK_resources_macOS"],
+            path: "Library/Sources/"
         ),
-        targets: [
-        .target(name: "SwiftyVK_macOS", dependencies: ["SwiftyVK_resources_macOS"]),
-        .target(name: "SwiftyVK_iOS", dependencies: ["SwiftyVK_resources_iOS"]),
-        .testTarget(name: "SwiftyVK_tests_macOS", dependencies: ["SwiftyVK_macOS"]),
-        .testTarget(name: "SwiftyVK_tests_iOS", dependencies: ["SwiftyVK_iOS"])
-        ]
+        .target(
+            name: "SwiftyVK_iOS",
+            dependencies: ["SwiftyVK_resources_iOS"],
+            path: "Library/Sources/"
+        ),
+        .testTarget(
+            name: "SwiftyVK_tests_macOS",
+            dependencies: ["SwiftyVK_macOS"],
+            path: "Library/Sources/"
+        ),
+        .testTarget(
+            name: "SwiftyVK_tests_iOS",
+            dependencies: ["SwiftyVK_iOS"],
+            path: "Library/Sources/"
+        )
     ]
 )
