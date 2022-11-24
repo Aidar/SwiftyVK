@@ -14,7 +14,7 @@ let package = Package(
         .target(name: "SwiftyVK_macOS", dependencies: ["SwiftyVK_resources_macOS"]),
         .target(name: "SwiftyVK_iOS", dependencies: ["SwiftyVK_resources_iOS"]),
         .testTarget(name: "SwiftyVK_tests_macOS", dependencies: ["SwiftyVK_macOS"]),
-        .testTarget(name: "SwiftyVK_tests_iOS", dependencies: ["SwiftyVK_iOS"]),
+        .testTarget(name: "SwiftyVK_tests_iOS", dependencies: ["SwiftyVK_iOS"])
         ]
     ]
 )
