@@ -1,36 +1,29 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.3
 // The swift-tools-version declares the minimum version of Swift required to build this package.
-
 import PackageDescription
 
 let package = Package(
     name: "SwiftyVK",
     products: [
+        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "SwiftyVK",
-            targets: ["SwiftyVK_macOS", "SwiftyVK_iOS"]
-        )
+            targets: ["SwiftyVK"]),
+    ],
+    dependencies: [
+        // Dependencies declare other packages that this package depends on.
+        // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
+        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
+        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "SwiftyVK_macOS",
-            dependencies: ["SwiftyVK_resources_macOS"],
-            path: "Library/Sources/"
-        ),
-        .target(
-            name: "SwiftyVK_iOS",
-            dependencies: ["SwiftyVK_resources_iOS"],
-            path: "Library/Sources/"
+            name: "SwiftyVK",
+            dependencies: [],
+            path: "Library/Sources"
         ),
         .testTarget(
-            name: "SwiftyVK_tests_macOS",
-            dependencies: ["SwiftyVK_macOS"],
-            path: "Library/Sources/"
-        ),
-        .testTarget(
-            name: "SwiftyVK_tests_iOS",
-            dependencies: ["SwiftyVK_iOS"],
-            path: "Library/Sources/"
-        )
+            name: "SwiftyVKTests",
+            dependencies: ["SwiftyVK"]),
     ]
 )
